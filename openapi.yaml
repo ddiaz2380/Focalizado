@@ -1,0 +1,770 @@
+openapi: 3.0.0
+info:
+  x-skaffolder-id-project: 609c58dee877d2434b217398
+  title: Focalizado
+  description: You can obtain JWT token from login API
+  version: 0.1
+servers:
+  - url: http://localhost:3000/api
+    description: Local server for testing
+paths:
+  /login:
+    post:
+      x-skaffolder-ignore: true
+      summary: Login API
+      security: []
+      tags:
+        - Security
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+              example:
+                username: admin
+                password: 62f264d7ad826f02a8af714c0a54b197935b717656b80461686d450f7b3abde4c553541515de2052b9af70f710f0cd8a1a2d3f4d60aa72608d71a63a9a93c0f5
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+  /verifyToken:
+    post:
+      x-skaffolder-ignore: true
+      summary: Verify token API
+      security: []
+      tags:
+        - Security
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+  /changePassword:
+    post:
+      x-skaffolder-ignore: true
+      summary: Change password API
+      tags:
+        - Security
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                passwordNew:
+                  type: string
+                passwordOld:
+                  type: string
+      responses:
+        "200":
+          description: OK
+  /departamento:
+    post:
+      x-skaffolder-id: 609c5ac7e877d2434b217423
+      x-skaffolder-name: create
+      x-skaffolder-id-resource: 609c5a4be877d2434b217417
+      x-skaffolder-resource: Departamento
+      x-skaffolder-crudAction: create
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION create
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /
+      x-skaffolder-roles: []
+      summary: CRUD ACTION create
+      tags:
+        - Departamento
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Departamento"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Departamento:
+                  type: string
+                Descripcion:
+                  type: string
+    get:
+      x-skaffolder-id: 609c5ac7e877d2434b21742b
+      x-skaffolder-name: list
+      x-skaffolder-id-resource: 609c5a4be877d2434b217417
+      x-skaffolder-resource: Departamento
+      x-skaffolder-crudAction: list
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION list
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /
+      x-skaffolder-roles: []
+      summary: CRUD ACTION list
+      tags:
+        - Departamento
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Departamento"
+  "/departamento/{id}":
+    delete:
+      x-skaffolder-id: 609c5ac7e877d2434b21742a
+      x-skaffolder-name: delete
+      x-skaffolder-id-resource: 609c5a4be877d2434b217417
+      x-skaffolder-resource: Departamento
+      x-skaffolder-crudAction: delete
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION delete
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /{id}
+      x-skaffolder-roles: []
+      summary: CRUD ACTION delete
+      tags:
+        - Departamento
+      parameters:
+        - name: id
+          x-skaffolder-type: ObjectId
+          in: path
+          description: Id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+    get:
+      x-skaffolder-id: 609c5ac7e877d2434b217425
+      x-skaffolder-name: get
+      x-skaffolder-id-resource: 609c5a4be877d2434b217417
+      x-skaffolder-resource: Departamento
+      x-skaffolder-crudAction: get
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION get
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /{id}
+      x-skaffolder-roles: []
+      summary: CRUD ACTION get
+      tags:
+        - Departamento
+      parameters:
+        - name: id
+          x-skaffolder-type: ObjectId
+          in: path
+          description: Id resource
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Departamento"
+    post:
+      x-skaffolder-id: 609c5ac7e877d2434b217422
+      x-skaffolder-name: update
+      x-skaffolder-id-resource: 609c5a4be877d2434b217417
+      x-skaffolder-resource: Departamento
+      x-skaffolder-crudAction: update
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION update
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /{id}
+      x-skaffolder-roles: []
+      summary: CRUD ACTION update
+      tags:
+        - Departamento
+      parameters:
+        - name: id
+          x-skaffolder-type: ObjectId
+          in: path
+          description: Id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Departamento"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Departamento"
+  /municipio:
+    post:
+      x-skaffolder-id: 609c5acde877d2434b21742e
+      x-skaffolder-name: create
+      x-skaffolder-id-resource: 609c5a8ae877d2434b21741e
+      x-skaffolder-resource: Municipio
+      x-skaffolder-crudAction: create
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION create
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /
+      x-skaffolder-roles: []
+      summary: CRUD ACTION create
+      tags:
+        - Municipio
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Municipio"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Departamento:
+                  type: number
+                Descripcion:
+                  type: string
+                Municipio:
+                  type: string
+    get:
+      x-skaffolder-id: 609c5acde877d2434b217435
+      x-skaffolder-name: list
+      x-skaffolder-id-resource: 609c5a8ae877d2434b21741e
+      x-skaffolder-resource: Municipio
+      x-skaffolder-crudAction: list
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION list
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /
+      x-skaffolder-roles: []
+      summary: CRUD ACTION list
+      tags:
+        - Municipio
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Municipio"
+  "/municipio/{id}":
+    delete:
+      x-skaffolder-id: 609c5acde877d2434b217434
+      x-skaffolder-name: delete
+      x-skaffolder-id-resource: 609c5a8ae877d2434b21741e
+      x-skaffolder-resource: Municipio
+      x-skaffolder-crudAction: delete
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION delete
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /{id}
+      x-skaffolder-roles: []
+      summary: CRUD ACTION delete
+      tags:
+        - Municipio
+      parameters:
+        - name: id
+          x-skaffolder-type: ObjectId
+          in: path
+          description: Id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+    get:
+      x-skaffolder-id: 609c5acde877d2434b21742f
+      x-skaffolder-name: get
+      x-skaffolder-id-resource: 609c5a8ae877d2434b21741e
+      x-skaffolder-resource: Municipio
+      x-skaffolder-crudAction: get
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION get
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /{id}
+      x-skaffolder-roles: []
+      summary: CRUD ACTION get
+      tags:
+        - Municipio
+      parameters:
+        - name: id
+          x-skaffolder-type: ObjectId
+          in: path
+          description: Id resource
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Municipio"
+    post:
+      x-skaffolder-id: 609c5acde877d2434b217430
+      x-skaffolder-name: update
+      x-skaffolder-id-resource: 609c5a8ae877d2434b21741e
+      x-skaffolder-resource: Municipio
+      x-skaffolder-crudAction: update
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION update
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /{id}
+      x-skaffolder-roles: []
+      summary: CRUD ACTION update
+      tags:
+        - Municipio
+      parameters:
+        - name: id
+          x-skaffolder-type: ObjectId
+          in: path
+          description: Id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Municipio"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Municipio"
+  "/municipio/findByDepartamento/{key}":
+    get:
+      x-skaffolder-id: 609c5ac7e877d2434b217427
+      x-skaffolder-name: findByDepartamento
+      x-skaffolder-id-resource: 609c5a8ae877d2434b21741e
+      x-skaffolder-resource: Municipio
+      x-skaffolder-crudAction: findByDepartamento
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION findByDepartamento
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /findByDepartamento/{key}
+      x-skaffolder-roles: []
+      summary: CRUD ACTION findByDepartamento
+      tags:
+        - Municipio
+      parameters:
+        - name: key
+          x-skaffolder-type: Objectid
+          in: path
+          description: Id of model to search for
+          required: true
+          schema:
+            type: Objectid
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Municipio"
+  "/user/{id}/changePassword":
+    post:
+      x-skaffolder-id: 609c58dee877d2434b2173a5
+      x-skaffolder-name: changePassword
+      x-skaffolder-id-resource: 609c58dee877d2434b2173a2
+      x-skaffolder-resource: User
+      x-skaffolder-crudAction: 
+      x-skaffolder-crudType: 
+      x-skaffolder-description: Change password of user from admin
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: object
+      x-skaffolder-url: /{id}/changePassword
+      x-skaffolder-roles:
+        - 609c58dee877d2434b2173a4
+      summary: Change password of user from admin
+      tags:
+        - User
+      responses:
+        "200":
+          description: OK
+  /user:
+    post:
+      x-skaffolder-id: 609c58dee877d2434b2173a9
+      x-skaffolder-name: create
+      x-skaffolder-id-resource: 609c58dee877d2434b2173a2
+      x-skaffolder-resource: User
+      x-skaffolder-crudAction: create
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION create
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /
+      x-skaffolder-roles: []
+      summary: CRUD ACTION create
+      tags:
+        - User
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                mail:
+                  type: string
+                name:
+                  type: string
+                password:
+                  type: string
+                roles:
+                  type: string
+                surname:
+                  type: string
+                username:
+                  type: string
+    get:
+      x-skaffolder-id: 609c58dee877d2434b2173a8
+      x-skaffolder-name: list
+      x-skaffolder-id-resource: 609c58dee877d2434b2173a2
+      x-skaffolder-resource: User
+      x-skaffolder-crudAction: list
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION list
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /
+      x-skaffolder-roles: []
+      summary: CRUD ACTION list
+      tags:
+        - User
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/User"
+  "/user/{id}":
+    delete:
+      x-skaffolder-id: 609c58dee877d2434b2173aa
+      x-skaffolder-name: delete
+      x-skaffolder-id-resource: 609c58dee877d2434b2173a2
+      x-skaffolder-resource: User
+      x-skaffolder-crudAction: delete
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION delete
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /{id}
+      x-skaffolder-roles: []
+      summary: CRUD ACTION delete
+      tags:
+        - User
+      parameters:
+        - name: id
+          x-skaffolder-type: ObjectId
+          in: path
+          description: Id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+    get:
+      x-skaffolder-id: 609c58dee877d2434b2173a7
+      x-skaffolder-name: get
+      x-skaffolder-id-resource: 609c58dee877d2434b2173a2
+      x-skaffolder-resource: User
+      x-skaffolder-crudAction: get
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION get
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /{id}
+      x-skaffolder-roles: []
+      summary: CRUD ACTION get
+      tags:
+        - User
+      parameters:
+        - name: id
+          x-skaffolder-type: ObjectId
+          in: path
+          description: Id resource
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+    post:
+      x-skaffolder-id: 609c58dee877d2434b2173a6
+      x-skaffolder-name: update
+      x-skaffolder-id-resource: 609c58dee877d2434b2173a2
+      x-skaffolder-resource: User
+      x-skaffolder-crudAction: update
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION update
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /{id}
+      x-skaffolder-roles: []
+      summary: CRUD ACTION update
+      tags:
+        - User
+      parameters:
+        - name: id
+          x-skaffolder-type: ObjectId
+          in: path
+          description: Id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
+security:
+  - bearerAuth: []
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    Departamento:
+      x-skaffolder-id: 609c5a4be877d2434b217417
+      x-skaffolder-id-db: 609c58dee877d2434b217399
+      x-skaffolder-id-entity: 609c5a4be877d2434b217414
+      x-skaffolder-url: /departamento
+      properties:
+        _id:
+          type: string
+          x-skaffolder-required: true
+        Departamento:
+          type: string
+          x-skaffolder-id-attr: 609c5a4be877d2434b217415
+          x-skaffolder-type: String
+          x-skaffolder-required: true
+        Descripcion:
+          type: string
+          x-skaffolder-id-attr: 609c5a4be877d2434b217416
+          x-skaffolder-type: String
+      x-skaffolder-relations: 
+      required:
+        - _id
+        - Departamento
+    Municipio:
+      x-skaffolder-id: 609c5a8ae877d2434b21741e
+      x-skaffolder-id-db: 609c58dee877d2434b217399
+      x-skaffolder-id-entity: 609c5a8ae877d2434b21741a
+      x-skaffolder-url: /municipio
+      properties:
+        _id:
+          type: string
+          x-skaffolder-required: true
+        Departamento:
+          type: number
+          x-skaffolder-id-attr: 609c5aa9e877d2434b217420
+          x-skaffolder-type: Number
+          x-skaffolder-required: true
+        Descripcion:
+          type: string
+          x-skaffolder-id-attr: 609c5a8ae877d2434b21741c
+          x-skaffolder-type: String
+        Municipio:
+          type: string
+          x-skaffolder-id-attr: 609c5a8ae877d2434b21741b
+          x-skaffolder-type: String
+          x-skaffolder-required: true
+      x-skaffolder-relations:
+        Departamento:
+          x-skaffolder-id: 609c5a8ae877d2434b21741d
+          x-skaffolder-type: m:m
+          x-skaffolder-required: true
+          x-skaffolder-ent1: 609c5a8ae877d2434b21741a
+          x-skaffolder-ent2: 609c5a4be877d2434b217414
+      required:
+        - _id
+        - Departamento
+        - Municipio
+    User:
+      x-skaffolder-id: 609c58dee877d2434b2173a2
+      x-skaffolder-id-db: 609c58dee877d2434b217399
+      x-skaffolder-id-entity: 609c58dee877d2434b21739a
+      x-skaffolder-url: /user
+      x-skaffolder-type: User
+      properties:
+        _id:
+          type: string
+          x-skaffolder-required: true
+        mail:
+          type: string
+          x-skaffolder-id-attr: 609c58dee877d2434b21739d
+          x-skaffolder-type: String
+        name:
+          type: string
+          x-skaffolder-id-attr: 609c58dee877d2434b21739e
+          x-skaffolder-type: String
+        password:
+          type: string
+          x-skaffolder-id-attr: 609c58dee877d2434b21739c
+          x-skaffolder-type: String
+          x-skaffolder-required: true
+        roles:
+          type: string
+          x-skaffolder-id-attr: 609c58dee877d2434b2173a0
+          x-skaffolder-type: String
+        surname:
+          type: string
+          x-skaffolder-id-attr: 609c58dee877d2434b21739f
+          x-skaffolder-type: String
+        username:
+          type: string
+          x-skaffolder-id-attr: 609c58dee877d2434b21739b
+          x-skaffolder-type: String
+          x-skaffolder-required: true
+      x-skaffolder-relations: 
+      required:
+        - _id
+        - password
+        - username
+  x-skaffolder-db:
+    - x-skaffolder-id: 609c58dee877d2434b217399
+      x-skaffolder-name: Focalizado_db
+  x-skaffolder-page:
+    - x-skaffolder-id: 609c5ac7e877d2434b217421
+      x-skaffolder-name: DepartamentoEdit
+      x-skaffolder-url: /departamentos/{id}
+      x-skaffolder-template: Edit_Crud
+      x-skaffolder-resource: 609c5a4be877d2434b217417
+      x-skaffolder-services:
+        - 609c5ac7e877d2434b217423
+        - 609c5ac7e877d2434b217422
+        - 609c5ac7e877d2434b217425
+        - 609c5ac7e877d2434b217427
+      x-skaffolder-nesteds: 
+      x-skaffolder-links: 
+      x-skaffolder-roles: []
+    - x-skaffolder-id: 609c5ac7e877d2434b217429
+      x-skaffolder-name: DepartamentoList
+      x-skaffolder-url: /departamentos
+      x-skaffolder-template: List_Crud
+      x-skaffolder-resource: 609c5a4be877d2434b217417
+      x-skaffolder-services:
+        - 609c5ac7e877d2434b21742a
+        - 609c5ac7e877d2434b21742b
+      x-skaffolder-nesteds: 
+      x-skaffolder-links:
+        - 609c5ac7e877d2434b217421
+      x-skaffolder-roles: []
+    - x-skaffolder-id: 609c58dee877d2434b2173a1
+      x-skaffolder-name: Home
+      x-skaffolder-url: /home
+      x-skaffolder-template: 
+      x-skaffolder-resource: 
+      x-skaffolder-services: 
+      x-skaffolder-nesteds: 
+      x-skaffolder-links:
+        - 609c5ac7e877d2434b217429
+        - 609c5acde877d2434b217433
+      x-skaffolder-roles: []
+    - x-skaffolder-id: 609c5acde877d2434b21742d
+      x-skaffolder-name: MunicipioEdit
+      x-skaffolder-url: /municipios/{id}
+      x-skaffolder-template: Edit_Crud
+      x-skaffolder-resource: 609c5a8ae877d2434b21741e
+      x-skaffolder-services:
+        - 609c5acde877d2434b21742e
+        - 609c5acde877d2434b217430
+        - 609c5acde877d2434b21742f
+        - 609c5ac7e877d2434b21742b
+      x-skaffolder-nesteds: 
+      x-skaffolder-links: 
+      x-skaffolder-roles: []
+    - x-skaffolder-id: 609c5acde877d2434b217433
+      x-skaffolder-name: MunicipioList
+      x-skaffolder-url: /municipios
+      x-skaffolder-template: List_Crud
+      x-skaffolder-resource: 609c5a8ae877d2434b21741e
+      x-skaffolder-services:
+        - 609c5acde877d2434b217434
+        - 609c5acde877d2434b217435
+      x-skaffolder-nesteds: 
+      x-skaffolder-links:
+        - 609c5acde877d2434b21742d
+      x-skaffolder-roles: []
+  x-skaffolder-roles: 
+    - x-skaffolder-id: 609c58dee877d2434b2173a4
+      x-skaffolder-name: ADMIN
+    - x-skaffolder-id: 609c5b99e877d2434b2174ef
+      x-skaffolder-name: USERS
